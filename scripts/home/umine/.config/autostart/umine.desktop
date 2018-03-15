@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name[en_US]=umine
+Name[zh_CN]=umine
+Exec=/bin/bash -c 'sleep 10; gnome-terminal --maximize -e /opt/umine_linux/run.sh &'
+Comment[en_US]=umine
+Name=umine
+Comment=umine
+Icon=gnome-nettool
