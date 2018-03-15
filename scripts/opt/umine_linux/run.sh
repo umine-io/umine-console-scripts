@@ -2,9 +2,17 @@
 
 /opt/umine_linux/oc.sh
 
-while [ ! -f /tmp/mining-session.tmp ]; do
-    echo "Waiting for mining session..."
-    sleep 1
-done
+if [ -f "/etc/default/umine" ]; then
+    . /etc/defualt/umine
+fi
 
-byobu
+if [ x"${UMINE_WEB_UI}" = x"1" ]; then
+    echo "Start Web browswer here."
+else
+    while [ ! -f /tmp/mining-session.tmp ]; do
+        echo "Waiting for mining session..."
+        sleep 1
+    done
+
+    byobu
+fi

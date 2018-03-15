@@ -13,8 +13,18 @@
 
 export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 
+if [ -f "/etc/default/umine" ]; then
+    . /etc/defualt/umine
+fi
+
 /opt/umine_linux/mining_init
 /opt/umine_linux/hwwd.sh >/dev/null 2>/dev/null &
-su - umine -c 'byobu new-session -d /opt/umine_linux/go.sh' &
+
+if [ x"${UMINE_WEB_UI}" = x"1" ]; then
+    echo "Start UMine Web UI."
+else
+    echo "Start UMine console script."
+    su - umine -c 'byobu new-session -d /opt/umine_linux/go.sh' &
+fi
 
 exit 0
