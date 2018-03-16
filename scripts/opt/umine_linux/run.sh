@@ -7,7 +7,7 @@ if [ -f "/etc/default/umine" ]; then
 fi
 
 if [ x"${UMINE_WEB_UI}" = x"1" ]; then
-    echo "Start Web browswer here."
+    chromium-browser --kiosk /home/umine/Documents/index.html
 else
     while [ ! -f /tmp/mining-session.tmp ]; do
         echo "Waiting for mining session..."
