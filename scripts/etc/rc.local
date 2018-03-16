@@ -21,7 +21,7 @@ fi
 /opt/umine_linux/hwwd.sh >/dev/null 2>/dev/null &
 
 if [ x"${UMINE_WEB_UI}" = x"1" ]; then
-    echo "Start UMine Web UI."
+    su - umine -c 'python3 /home/umine/umine_nix_client/app.py runserver' &
 else
     echo "Start UMine console script."
     su - umine -c 'byobu new-session -d /opt/umine_linux/go.sh' &
